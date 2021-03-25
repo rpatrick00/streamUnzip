@@ -46,7 +46,7 @@ async function resetOutputDirectory(outputDir, dirToDelete) {
 
 async function rmdirIfExists(directory) {
   return new Promise((resolve, reject) => {
-    if (!fs.existsSync(directory)) {
+    if (fs.existsSync(directory)) {
       fsPromises.rm(directory, {
           force: true,
           recursive: true
