@@ -7,10 +7,10 @@ const unzip = require('unzip-stream');
 async function main() {
   const url = 'https://github.com/oracle/weblogic-deploy-tooling/releases/download/release-1.9.10/weblogic-deploy.zip';
   const outputDir = path.join(__dirname, 'tools');
-  const directoryToDelete = path.join()
+  const directoryToDelete = path.join(outputDir, 'weblogic-deploy');
 
   return new Promise((resolve, reject) => {
-    resetOutputDirectory(outputDir)
+    resetOutputDirectory(outputDir, directoryToDelete)
       .then(() => {
         installZipFile(url, outputDir)
           .then(() => {
@@ -18,7 +18,7 @@ async function main() {
           })
           .catch(err => reject(`Failed to install WebLogic Deploy Tooling: ${err}`));
       })
-      .catch(err => reject(`Failed to make output directory ${outputDir}: ${err}`));
+      .catch(err => reject(`Failed to reset output directory ${outputDir}: ${err}`));
   });
 }
 
