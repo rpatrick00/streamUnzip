@@ -1,0 +1,16 @@
+{
+  "name": "streamunzip",
+  "version": "1.0.0",
+  "description": "reproducer for unzip-stream issue #36",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robert Patrick",
+  "license": "UPL-1.0",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "unzip-stream": "^0.3.1"
+  }
+}
